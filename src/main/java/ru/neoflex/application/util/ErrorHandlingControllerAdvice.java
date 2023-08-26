@@ -1,7 +1,5 @@
 package ru.neoflex.application.util;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import feign.FeignException;
 import jakarta.validation.ConstraintViolationException;
@@ -52,11 +50,7 @@ public class ErrorHandlingControllerAdvice {
     @ExceptionHandler(FeignException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    public ErrorResponse handleFeignException(FeignException e) throws JsonProcessingException {
-        if (e.status() == 400) {
-            String message = e.contentUTF8();
-            return new ObjectMapper().readValue(message, ErrorResponse.class);
-        }
-        return new ErrorResponse("Unexpected error");
+    public ErrorResponse handleFeignException(FeignException e) {
+        return new ErrorResponse("Unexpected error " + e.getMessage());
     }
 }

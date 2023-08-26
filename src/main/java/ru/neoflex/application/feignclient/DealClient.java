@@ -11,7 +11,7 @@ import ru.neoflex.openapi.dtos.LoanOfferDTO;
 
 import java.util.List;
 
-@FeignClient(name = "deal", url = "http://localhost:8080", path = "/deal")
+@FeignClient(name = "deal", url = "http://localhost:8082", path = "/deal")
 public interface DealClient {
     @PostMapping("/application")
     ResponseEntity<List<LoanOfferDTO>> createApplication(@Valid @RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO);

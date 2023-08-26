@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-16T14:18:53.934842300+03:00[Europe/Moscow]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-25T17:55:40.797636600+03:00[Europe/Moscow]")
 @Validated
 @Tag(name = "application", description = "the application API")
 public interface ApplicationApi {
@@ -48,14 +48,14 @@ public interface ApplicationApi {
      *
      * @param loanOfferDTO  (required)
      * @return Offer applied (status code 200)
-     *         or Validation error (status code 400)
+     *         or Error (status code 400)
      */
     @Operation(
         operationId = "applyOffer",
         summary = "Choosing one of the offers",
         responses = {
             @ApiResponse(responseCode = "200", description = "Offer applied"),
-            @ApiResponse(responseCode = "400", description = "Validation error", content = {
+            @ApiResponse(responseCode = "400", description = "Error", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ErrorResponse.class)))
             })
         }
@@ -84,7 +84,7 @@ public interface ApplicationApi {
      *
      * @param loanApplicationRequestDTO  (required)
      * @return Application created (status code 200)
-     *         or Validation error (status code 400)
+     *         or Error (status code 400)
      */
     @Operation(
         operationId = "createApplication",
@@ -93,7 +93,7 @@ public interface ApplicationApi {
             @ApiResponse(responseCode = "200", description = "Application created", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = LoanOfferDTO.class)))
             }),
-            @ApiResponse(responseCode = "400", description = "Validation error", content = {
+            @ApiResponse(responseCode = "400", description = "Error", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ErrorResponse.class)))
             })
         }
