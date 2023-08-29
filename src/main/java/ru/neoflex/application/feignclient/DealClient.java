@@ -1,21 +1,20 @@
 package ru.neoflex.application.feignclient;
 
-import jakarta.validation.Valid;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import ru.neoflex.openapi.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.openapi.dtos.LoanOfferDTO;
+import ru.neoflex.openapi.dtos.LoanApplicationRequest;
+import ru.neoflex.openapi.dtos.LoanOffer;
 
 import java.util.List;
 
-@FeignClient(name = "deal", url = "http://localhost:8082", path = "/deal")
+@FeignClient(name = "deal", url = "${deal.url}", path = "/deal")
 public interface DealClient {
     @PostMapping("/application")
-    ResponseEntity<List<LoanOfferDTO>> createApplication(@Valid @RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO);
+    ResponseEntity<List<LoanOffer>> createApplication(@RequestBody LoanApplicationRequest loanApplicationRequestDTO);
 
     @PutMapping("/offer")
-    ResponseEntity<Void> applyOffer(@Valid @RequestBody LoanOfferDTO loanOfferDTO);
+    ResponseEntity<Void> applyOffer(@RequestBody LoanOffer loanOfferDTO);
 }

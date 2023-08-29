@@ -8,8 +8,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import ru.neoflex.application.feignclient.DealClient;
-import ru.neoflex.openapi.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.openapi.dtos.LoanOfferDTO;
+import ru.neoflex.openapi.dtos.LoanApplicationRequest;
+import ru.neoflex.openapi.dtos.LoanOffer;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -29,17 +29,14 @@ class ApplicationServiceImplTest {
     @Test
     void createApplication() {
         //expected
-        List<LoanOfferDTO> offers = List.of(
-//                new LoanOfferDTO(null, BigDecimal.valueOf(10000), BigDecimal.valueOf(10000), 6, BigDecimal.valueOf(1750.27), BigDecimal.valueOf(17), false, false),
-//                new LoanOfferDTO(null, BigDecimal.valueOf(10000), BigDecimal.valueOf(10000), 6, BigDecimal.valueOf(1745.30), BigDecimal.valueOf(16), false, true),
-//                new LoanOfferDTO(null, BigDecimal.valueOf(10000), BigDecimal.valueOf(10150), 6, BigDecimal.valueOf(1761.41), BigDecimal.valueOf(14), true, false),
-                new LoanOfferDTO(1L, BigDecimal.valueOf(10000), BigDecimal.valueOf(10150), 6, BigDecimal.valueOf(1756.38), BigDecimal.valueOf(13), true, true)
+        List<LoanOffer> offers = List.of(
+                new LoanOffer(1L, BigDecimal.valueOf(10000), BigDecimal.valueOf(10150), 6, BigDecimal.valueOf(1756.38), BigDecimal.valueOf(13), true, true)
         );
 
         when(dealClient.createApplication(any())).thenReturn(new ResponseEntity<>(offers, HttpStatus.OK));
 
         //actual
-        List<LoanOfferDTO> actualOffers = applicationService.createApplication(new LoanApplicationRequestDTO());
+        List<LoanOffer> actualOffers = applicationService.createApplication(new LoanApplicationRequest());
 
         //tests
         assertNotNull(actualOffers);
@@ -50,7 +47,7 @@ class ApplicationServiceImplTest {
     @Test
     void applyOffer() {
         when(dealClient.applyOffer(any())).thenReturn(new ResponseEntity<>(HttpStatus.OK));
-        applicationService.applyOffer(new LoanOfferDTO());
+        applicationService.applyOffer(new LoanOffer());
 
         //tests
         verify(dealClient, times(1)).applyOffer(any());

@@ -19,9 +19,9 @@ import jakarta.annotation.Generated;
  * Loan offer
  */
 
-@Schema(name = "LoanOfferDTO", description = "Loan offer")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-25T17:55:40.797636600+03:00[Europe/Moscow]")
-public class LoanOfferDTO implements Serializable {
+@Schema(name = "LoanOffer", description = "Loan offer")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-29T12:43:58.086982+03:00[Europe/Moscow]")
+public class LoanOffer implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -43,17 +43,17 @@ public class LoanOfferDTO implements Serializable {
 
   /**
    * Default constructor
-   * @deprecated Use {@link LoanOfferDTO#LoanOfferDTO(Long, java.math.BigDecimal, java.math.BigDecimal, Integer, java.math.BigDecimal, java.math.BigDecimal, Boolean, Boolean)}
+   * @deprecated Use {@link LoanOffer#LoanOffer(Long, java.math.BigDecimal, java.math.BigDecimal, Integer, java.math.BigDecimal, java.math.BigDecimal, Boolean, Boolean)}
    */
   @Deprecated
-  public LoanOfferDTO() {
+  public LoanOffer() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public LoanOfferDTO(Long applicationId, java.math.BigDecimal requestedAmount, java.math.BigDecimal totalAmount, Integer term, java.math.BigDecimal monthlyPayment, java.math.BigDecimal rate, Boolean isInsuranceEnabled, Boolean isSalaryClient) {
+  public LoanOffer(Long applicationId, java.math.BigDecimal requestedAmount, java.math.BigDecimal totalAmount, Integer term, java.math.BigDecimal monthlyPayment, java.math.BigDecimal rate, Boolean isInsuranceEnabled, Boolean isSalaryClient) {
     this.applicationId = applicationId;
     this.requestedAmount = requestedAmount;
     this.totalAmount = totalAmount;
@@ -64,7 +64,7 @@ public class LoanOfferDTO implements Serializable {
     this.isSalaryClient = isSalaryClient;
   }
 
-  public LoanOfferDTO applicationId(Long applicationId) {
+  public LoanOffer applicationId(Long applicationId) {
     this.applicationId = applicationId;
     return this;
   }
@@ -85,7 +85,7 @@ public class LoanOfferDTO implements Serializable {
     this.applicationId = applicationId;
   }
 
-  public LoanOfferDTO requestedAmount(java.math.BigDecimal requestedAmount) {
+  public LoanOffer requestedAmount(java.math.BigDecimal requestedAmount) {
     this.requestedAmount = requestedAmount;
     return this;
   }
@@ -106,7 +106,7 @@ public class LoanOfferDTO implements Serializable {
     this.requestedAmount = requestedAmount;
   }
 
-  public LoanOfferDTO totalAmount(java.math.BigDecimal totalAmount) {
+  public LoanOffer totalAmount(java.math.BigDecimal totalAmount) {
     this.totalAmount = totalAmount;
     return this;
   }
@@ -127,7 +127,7 @@ public class LoanOfferDTO implements Serializable {
     this.totalAmount = totalAmount;
   }
 
-  public LoanOfferDTO term(Integer term) {
+  public LoanOffer term(Integer term) {
     this.term = term;
     return this;
   }
@@ -148,7 +148,7 @@ public class LoanOfferDTO implements Serializable {
     this.term = term;
   }
 
-  public LoanOfferDTO monthlyPayment(java.math.BigDecimal monthlyPayment) {
+  public LoanOffer monthlyPayment(java.math.BigDecimal monthlyPayment) {
     this.monthlyPayment = monthlyPayment;
     return this;
   }
@@ -168,7 +168,7 @@ public class LoanOfferDTO implements Serializable {
     this.monthlyPayment = monthlyPayment;
   }
 
-  public LoanOfferDTO rate(java.math.BigDecimal rate) {
+  public LoanOffer rate(java.math.BigDecimal rate) {
     this.rate = rate;
     return this;
   }
@@ -188,7 +188,7 @@ public class LoanOfferDTO implements Serializable {
     this.rate = rate;
   }
 
-  public LoanOfferDTO isInsuranceEnabled(Boolean isInsuranceEnabled) {
+  public LoanOffer isInsuranceEnabled(Boolean isInsuranceEnabled) {
     this.isInsuranceEnabled = isInsuranceEnabled;
     return this;
   }
@@ -208,7 +208,7 @@ public class LoanOfferDTO implements Serializable {
     this.isInsuranceEnabled = isInsuranceEnabled;
   }
 
-  public LoanOfferDTO isSalaryClient(Boolean isSalaryClient) {
+  public LoanOffer isSalaryClient(Boolean isSalaryClient) {
     this.isSalaryClient = isSalaryClient;
     return this;
   }
@@ -236,15 +236,15 @@ public class LoanOfferDTO implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoanOfferDTO loanOfferDTO = (LoanOfferDTO) o;
-    return Objects.equals(this.applicationId, loanOfferDTO.applicationId) &&
-        Objects.equals(this.requestedAmount, loanOfferDTO.requestedAmount) &&
-        Objects.equals(this.totalAmount, loanOfferDTO.totalAmount) &&
-        Objects.equals(this.term, loanOfferDTO.term) &&
-        Objects.equals(this.monthlyPayment, loanOfferDTO.monthlyPayment) &&
-        Objects.equals(this.rate, loanOfferDTO.rate) &&
-        Objects.equals(this.isInsuranceEnabled, loanOfferDTO.isInsuranceEnabled) &&
-        Objects.equals(this.isSalaryClient, loanOfferDTO.isSalaryClient);
+    LoanOffer loanOffer = (LoanOffer) o;
+    return Objects.equals(this.applicationId, loanOffer.applicationId) &&
+        Objects.equals(this.requestedAmount, loanOffer.requestedAmount) &&
+        Objects.equals(this.totalAmount, loanOffer.totalAmount) &&
+        Objects.equals(this.term, loanOffer.term) &&
+        Objects.equals(this.monthlyPayment, loanOffer.monthlyPayment) &&
+        Objects.equals(this.rate, loanOffer.rate) &&
+        Objects.equals(this.isInsuranceEnabled, loanOffer.isInsuranceEnabled) &&
+        Objects.equals(this.isSalaryClient, loanOffer.isSalaryClient);
   }
 
   @Override
@@ -255,7 +255,7 @@ public class LoanOfferDTO implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoanOfferDTO {\n");
+    sb.append("class LoanOffer {\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    requestedAmount: ").append(toIndentedString(requestedAmount)).append("\n");
     sb.append("    totalAmount: ").append(toIndentedString(totalAmount)).append("\n");

@@ -6,8 +6,8 @@
 package ru.neoflex.openapi.controllers;
 
 import ru.neoflex.openapi.dtos.ErrorResponse;
-import ru.neoflex.openapi.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.openapi.dtos.LoanOfferDTO;
+import ru.neoflex.openapi.dtos.LoanApplicationRequest;
+import ru.neoflex.openapi.dtos.LoanOffer;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Optional;
 import jakarta.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-25T17:55:40.797636600+03:00[Europe/Moscow]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-29T12:43:58.086982+03:00[Europe/Moscow]")
 @Validated
 @Tag(name = "application", description = "the application API")
 public interface ApplicationApi {
@@ -46,16 +46,16 @@ public interface ApplicationApi {
     /**
      * PUT /application/offer : Choosing one of the offers
      *
-     * @param loanOfferDTO  (required)
+     * @param loanOffer  (required)
      * @return Offer applied (status code 200)
-     *         or Error (status code 400)
+     *         or Bad request (status code 400)
      */
     @Operation(
         operationId = "applyOffer",
         summary = "Choosing one of the offers",
         responses = {
             @ApiResponse(responseCode = "200", description = "Offer applied"),
-            @ApiResponse(responseCode = "400", description = "Error", content = {
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ErrorResponse.class)))
             })
         }
@@ -67,13 +67,13 @@ public interface ApplicationApi {
         consumes = { "application/json" }
     )
     default ResponseEntity<Void> _applyOffer(
-        @Parameter(name = "LoanOfferDTO", description = "", required = true) @Valid @RequestBody LoanOfferDTO loanOfferDTO
+        @Parameter(name = "LoanOffer", description = "", required = true) @Valid @RequestBody LoanOffer loanOffer
     ) {
-        return applyOffer(loanOfferDTO);
+        return applyOffer(loanOffer);
     }
 
     // Override this method
-    default  ResponseEntity<Void> applyOffer(LoanOfferDTO loanOfferDTO) {
+    default  ResponseEntity<Void> applyOffer(LoanOffer loanOffer) {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
 
     }
@@ -82,18 +82,18 @@ public interface ApplicationApi {
     /**
      * POST /application : Calculation of loan terms
      *
-     * @param loanApplicationRequestDTO  (required)
+     * @param loanApplicationRequest  (required)
      * @return Application created (status code 200)
-     *         or Error (status code 400)
+     *         or Bad request (status code 400)
      */
     @Operation(
         operationId = "createApplication",
         summary = "Calculation of loan terms",
         responses = {
             @ApiResponse(responseCode = "200", description = "Application created", content = {
-                @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = LoanOfferDTO.class)))
+                @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = LoanOffer.class)))
             }),
-            @ApiResponse(responseCode = "400", description = "Error", content = {
+            @ApiResponse(responseCode = "400", description = "Bad request", content = {
                 @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = ErrorResponse.class)))
             })
         }
@@ -104,14 +104,14 @@ public interface ApplicationApi {
         produces = { "application/json" },
         consumes = { "application/json" }
     )
-    default ResponseEntity<List<LoanOfferDTO>> _createApplication(
-        @Parameter(name = "LoanApplicationRequestDTO", description = "", required = true) @Valid @RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO
+    default ResponseEntity<List<LoanOffer>> _createApplication(
+        @Parameter(name = "LoanApplicationRequest", description = "", required = true) @Valid @RequestBody LoanApplicationRequest loanApplicationRequest
     ) {
-        return createApplication(loanApplicationRequestDTO);
+        return createApplication(loanApplicationRequest);
     }
 
     // Override this method
-    default  ResponseEntity<List<LoanOfferDTO>> createApplication(LoanApplicationRequestDTO loanApplicationRequestDTO) {
+    default  ResponseEntity<List<LoanOffer>> createApplication(LoanApplicationRequest loanApplicationRequest) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {

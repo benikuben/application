@@ -1,4 +1,4 @@
-package ru.neoflex.application.util;
+package ru.neoflex.application.controllers;
 
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import feign.FeignException;

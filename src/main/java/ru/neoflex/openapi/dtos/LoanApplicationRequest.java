@@ -20,9 +20,9 @@ import jakarta.annotation.Generated;
  * Loan application request
  */
 
-@Schema(name = "LoanApplicationRequestDTO", description = "Loan application request")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-25T17:55:40.797636600+03:00[Europe/Moscow]")
-public class LoanApplicationRequestDTO implements Serializable {
+@Schema(name = "LoanApplicationRequest", description = "Loan application request")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2023-08-29T12:43:58.086982+03:00[Europe/Moscow]")
+public class LoanApplicationRequest implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
@@ -47,17 +47,17 @@ public class LoanApplicationRequestDTO implements Serializable {
 
   /**
    * Default constructor
-   * @deprecated Use {@link LoanApplicationRequestDTO#LoanApplicationRequestDTO(java.math.BigDecimal, Integer, String, String, String, LocalDate, String, String)}
+   * @deprecated Use {@link LoanApplicationRequest#LoanApplicationRequest(java.math.BigDecimal, Integer, String, String, String, LocalDate, String, String)}
    */
   @Deprecated
-  public LoanApplicationRequestDTO() {
+  public LoanApplicationRequest() {
     super();
   }
 
   /**
    * Constructor with only required parameters
    */
-  public LoanApplicationRequestDTO(java.math.BigDecimal amount, Integer term, String firstName, String lastName, String email, LocalDate birthdate, String passportSeries, String passportNumber) {
+  public LoanApplicationRequest(java.math.BigDecimal amount, Integer term, String firstName, String lastName, String email, LocalDate birthdate, String passportSeries, String passportNumber) {
     this.amount = amount;
     this.term = term;
     this.firstName = firstName;
@@ -68,7 +68,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.passportNumber = passportNumber;
   }
 
-  public LoanApplicationRequestDTO amount(java.math.BigDecimal amount) {
+  public LoanApplicationRequest amount(java.math.BigDecimal amount) {
     this.amount = amount;
     return this;
   }
@@ -89,7 +89,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.amount = amount;
   }
 
-  public LoanApplicationRequestDTO term(Integer term) {
+  public LoanApplicationRequest term(Integer term) {
     this.term = term;
     return this;
   }
@@ -110,7 +110,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.term = term;
   }
 
-  public LoanApplicationRequestDTO firstName(String firstName) {
+  public LoanApplicationRequest firstName(String firstName) {
     this.firstName = firstName;
     return this;
   }
@@ -130,7 +130,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.firstName = firstName;
   }
 
-  public LoanApplicationRequestDTO lastName(String lastName) {
+  public LoanApplicationRequest lastName(String lastName) {
     this.lastName = lastName;
     return this;
   }
@@ -150,7 +150,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.lastName = lastName;
   }
 
-  public LoanApplicationRequestDTO middleName(String middleName) {
+  public LoanApplicationRequest middleName(String middleName) {
     this.middleName = middleName;
     return this;
   }
@@ -170,7 +170,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.middleName = middleName;
   }
 
-  public LoanApplicationRequestDTO email(String email) {
+  public LoanApplicationRequest email(String email) {
     this.email = email;
     return this;
   }
@@ -190,7 +190,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.email = email;
   }
 
-  public LoanApplicationRequestDTO birthdate(LocalDate birthdate) {
+  public LoanApplicationRequest birthdate(LocalDate birthdate) {
     this.birthdate = birthdate;
     return this;
   }
@@ -210,7 +210,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.birthdate = birthdate;
   }
 
-  public LoanApplicationRequestDTO passportSeries(String passportSeries) {
+  public LoanApplicationRequest passportSeries(String passportSeries) {
     this.passportSeries = passportSeries;
     return this;
   }
@@ -230,7 +230,7 @@ public class LoanApplicationRequestDTO implements Serializable {
     this.passportSeries = passportSeries;
   }
 
-  public LoanApplicationRequestDTO passportNumber(String passportNumber) {
+  public LoanApplicationRequest passportNumber(String passportNumber) {
     this.passportNumber = passportNumber;
     return this;
   }
@@ -258,16 +258,16 @@ public class LoanApplicationRequestDTO implements Serializable {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LoanApplicationRequestDTO loanApplicationRequestDTO = (LoanApplicationRequestDTO) o;
-    return Objects.equals(this.amount, loanApplicationRequestDTO.amount) &&
-        Objects.equals(this.term, loanApplicationRequestDTO.term) &&
-        Objects.equals(this.firstName, loanApplicationRequestDTO.firstName) &&
-        Objects.equals(this.lastName, loanApplicationRequestDTO.lastName) &&
-        Objects.equals(this.middleName, loanApplicationRequestDTO.middleName) &&
-        Objects.equals(this.email, loanApplicationRequestDTO.email) &&
-        Objects.equals(this.birthdate, loanApplicationRequestDTO.birthdate) &&
-        Objects.equals(this.passportSeries, loanApplicationRequestDTO.passportSeries) &&
-        Objects.equals(this.passportNumber, loanApplicationRequestDTO.passportNumber);
+    LoanApplicationRequest loanApplicationRequest = (LoanApplicationRequest) o;
+    return Objects.equals(this.amount, loanApplicationRequest.amount) &&
+        Objects.equals(this.term, loanApplicationRequest.term) &&
+        Objects.equals(this.firstName, loanApplicationRequest.firstName) &&
+        Objects.equals(this.lastName, loanApplicationRequest.lastName) &&
+        Objects.equals(this.middleName, loanApplicationRequest.middleName) &&
+        Objects.equals(this.email, loanApplicationRequest.email) &&
+        Objects.equals(this.birthdate, loanApplicationRequest.birthdate) &&
+        Objects.equals(this.passportSeries, loanApplicationRequest.passportSeries) &&
+        Objects.equals(this.passportNumber, loanApplicationRequest.passportNumber);
   }
 
   @Override
@@ -278,7 +278,7 @@ public class LoanApplicationRequestDTO implements Serializable {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LoanApplicationRequestDTO {\n");
+    sb.append("class LoanApplicationRequest {\n");
     sb.append("    amount: ").append(toIndentedString(amount)).append("\n");
     sb.append("    term: ").append(toIndentedString(term)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");

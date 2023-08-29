@@ -1,12 +1,12 @@
 package ru.neoflex.application.services;
 
-import ru.neoflex.openapi.dtos.LoanApplicationRequestDTO;
-import ru.neoflex.openapi.dtos.LoanOfferDTO;
+import ru.neoflex.openapi.dtos.LoanApplicationRequest;
+import ru.neoflex.openapi.dtos.LoanOffer;
 
 import java.util.List;
 
 public interface ApplicationService {
-    List<LoanOfferDTO> createApplication(LoanApplicationRequestDTO loanApplicationRequestDTO);
+    List<LoanOffer> createApplication(LoanApplicationRequest loanApplicationRequestDTO);
 
-    void applyOffer(LoanOfferDTO loanOfferDTO);
+    void applyOffer(LoanOffer loanOfferDTO);
 }

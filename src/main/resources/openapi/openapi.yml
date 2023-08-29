@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LoanApplicationRequestDTO'
+              $ref: '#/components/schemas/LoanApplicationRequest'
       responses:
         '200':
           description: Application created
@@ -38,7 +38,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LoanOfferDTO'
+              $ref: '#/components/schemas/LoanOffer'
       responses:
         '200':
           description: Offer applied
@@ -50,10 +50,9 @@ paths:
                 $ref: '#/components/schemas/Errors'
 components:
   schemas:
-    LoanApplicationRequestDTO:
+    LoanApplicationRequest:
       description: Loan application request
       type: object
-#      x-class-extra-annotation: "@lombok.AllArgsConstructor"
       required:
         - amount
         - term
@@ -118,7 +117,7 @@ components:
           x-pattern-message: должно содержать 6 цифр
           description: Passport number
           example: 123456
-    LoanOfferDTO:
+    LoanOffer:
       description: Loan offer
       type: object
       required:
@@ -177,7 +176,7 @@ components:
       type: array
       maxItems: 4
       items:
-        $ref: '#/components/schemas/LoanOfferDTO'
+        $ref: '#/components/schemas/LoanOffer'
     Errors:
       description: Errors
       type: array
